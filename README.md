@@ -1,4 +1,6 @@
 # Go_course
+## 線上寫Go網站
+https://play.golang.org/
 
 ## Package
 package main //所有的go程式都需要有package，說明這個文件在哪個package下
@@ -130,4 +132,72 @@ int8   : -128 ~ 127
 int16  : -32768 ~ 32767
 int32  : -2147483648 ~ 2147483647
 int64  : -9223372036854775808 ~ 9223372036854775807
+```
+
+## Go強制性編譯風格規範
+```go
+package main
+import "fmt"
+func main()
+{
+  i:= 1
+  fmt.Println("Hello World", i)
+}
+
+//---以上是錯誤寫法
+//---以下是正確寫法
+
+package main
+import "fmt"
+func main() {
+  i:= 1
+  fmt.Println("Hello World", i)
+}
+```
+## Go有非強制性的編譯風格建議
+可以輸入指令：
+
+    go fmt 檔名.go
+    go fmt
+
+即可針對想整理編譯風格的檔案進行縮排整理，不給予檔名的話就是所有檔案都會進行整理
+
+##  如果宣告一個變數不用，會報錯哦！
+
+### 流程控制 For
+
+Go只有一種迴「 for 」。
+
+基本的for迴圈除了沒有()外，跟java js一樣，必須有{}
+
+```go
+package main 
+
+import "fmt"
+
+func main(){
+  //1.
+  for i: = 0; i < 10; i++ {
+    sum += 1
+  }
+  fmt.Println(sum)
+  //2.
+  sum := 1
+  for ; sum < 1000; {
+    sum += sum
+  }
+  fmt.Println(sum)
+  //3. while 寫法
+  sum:=1
+  for sum < 1000{
+    sum += sum
+  }
+  fmt.Println(sum)
+
+  //4. 無窮迴圈
+  //如果省略了條件，迴圈便不會結束，因此表達無限迴圈方式如下
+  for {
+
+  }
+}
 ```

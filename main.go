@@ -2,8 +2,6 @@ package main //所有的go程式都需要有package，說明這個文件在哪�
 
 import (
 	"fmt"
-	"math"
-	"reflect"
 )
 
 //函式外面只能寫變數，函式，物件類別的宣告，不能寫表達式
@@ -110,15 +108,25 @@ func main() { //程式進入點
 	fmt.Println("c4", c4)
 
 	//int vs uint
-	fmt.Printf("uint8  : 0 ~ %d\n", math.MaxUint8)
-	fmt.Printf("uint16 : 0 ~ %d\n", math.MaxUint16)
-	fmt.Printf("uint32 : 0 ~ %d\n", math.MaxUint32)
-	fmt.Printf("uint64 : 0 ~ %d\n", uint64(math.MaxUint64))
-	fmt.Printf("int8   : %d ~ %d\n", math.MinInt8, math.MaxInt8)
-	fmt.Printf("int16  : %d ~ %d\n", math.MinInt16, math.MaxInt16)
-	fmt.Printf("int32  : %d ~ %d\n", math.MinInt32, math.MaxInt32)
-	fmt.Printf("int64  : %d ~ %d\n", math.MinInt64, math.MaxInt64)
-	fmt.Printf("整數預設型態: %s\n", reflect.TypeOf(1))
+	var (
+		x int64 = 10
+		y int64 = 20 //如果這裡x和y型別int32 int64不一樣，數字相加會錯
+	)
+	fmt.Println(x + y)
+
+	//複數
+	//複數包涵兩種型態 complex64、complex128。
+	var complexValue complex64
+	complexValue = 1.2 + 12i
+	complexValue2 := 1.2 + 12i
+	complexValue3 := complex(3.2, 12)
+
+	fmt.Println("complexValue =", complexValue)
+	fmt.Println("complexValue2 =", complexValue2)
+	fmt.Println("complexValue3 =", complexValue3)
+
+	fmt.Println("complexValue3 實數 =", real(complexValue3))
+	fmt.Println("complexValue3 虛數 =", imag(complexValue3))
 }
 
 //類別
