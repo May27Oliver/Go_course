@@ -1,71 +1,51 @@
-# Go_course
-
-## Package
 package main //所有的go程式都需要有package，說明這個文件在哪個package下
 
-## Import 要引用哪個套件包
 import "fmt"
 
-## 函式外的區域
-函式外面只能寫變數，函式，物件類別的宣告，不能寫表達式
+//函式外面只能寫變數，函式，物件類別的宣告，不能寫表達式
+// var name string
+// var age int
+// var isOk  bool
 
-```go
- var name string
- var age int
- var isOk  bool
-```
-
-
-##	大量聲明變數
-```go
+//	大量聲明變數
 var (
 	name string // 對應類型空值 ""
 	age  int    // 0
 	isOk bool   // false
 )
-```
 
 func foo(a int, b string) {
 	return
 }
 
-### Go變數宣告方式，宣告全域變數用
-
-```go
+//Go變數宣告方式，宣告全域變數用
 var (
 	student_name string
 	studentName  string
 	StudentName  string
 )
-```
 
-### 函式外面每個語句都要以關鍵字開始(var,const,func)
-### :=不能使用在函式外
-## _多用於佔位，表示忽略值
+//函式外面每個語句都要以關鍵字開始(var,const,func)
+//:=不能使用在函式外
+//_多用於佔位，表示忽略值
 
-## 常數，常數是恆常不變的變數
-```go
+//常數，常數是恆常不變的變數
 const pi = 3.14
-```
-## 多筆聲明常數
-```go
+
+//多筆聲明常數
 const (
 	statusOK = 200
 	notFound = 404
 )
-```
 
-## 如果宣告多筆常數，沒有值的變數會默認跟上面的變數值一樣
-```go
+//如果宣告多筆常數，沒有值的變數會默認跟上面的變數值一樣
 const (
 	n1 = 100
 	n2
 	n3
 )
-```
 
-## iota iota只用在常數內，類似計數器的存在
-```go
+//iota iota只用在常數內，類似計數器的存在
 const (
 	a1 = iota //0
 	a2
@@ -79,16 +59,13 @@ const (
 	b3
 )
 
-
 const (
 	c1 = iota //0
 	c2 = 100  //100
 	c3 = iota
 	c4
 )
-```
-## main()
-```go
+
 func main() { //程式進入點
 	name = "國動"
 	age = 35
@@ -129,12 +106,9 @@ func main() { //程式進入點
 	fmt.Println("c4", c4)
 
 }
-```
 
-## 類別
-### 整數
-int8 int16 int32 int64
-
-uint8 uint16 uint32 uint64
-
-uint8 就是byte類型
+//類別
+//整數
+//int8 int16 int32 int64
+//uint8 uint16 uint32 uint64
+//uint8 就是byte類型
