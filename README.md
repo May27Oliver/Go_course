@@ -38,10 +38,12 @@ var (
 	StudentName  string
 )
 ```
+code ( 
+  函式外面每個語句都要以關鍵字開始(var,const,func)
+  :=不能使用在函式外
+  _多用於佔位，表示忽略值
+)
 
-#### 函式外面每個語句都要以關鍵字開始(var,const,func)
-#### :=不能使用在函式外
-#### _多用於佔位，表示忽略值
 
 ## 常數，常數是恆常不變的變數
 ```go
@@ -59,8 +61,8 @@ const (
 ```go
 const (
 	n1 = 100
-	n2
-	n3
+	n2 //100
+	n3 //100
 )
 ```
 
@@ -68,26 +70,27 @@ const (
 ```go
 const (
 	a1 = iota //0
-	a2
-	a3
+	a2        //1
+	a3        //2
 )
 
 const (
-	b1 = iota
-	b2
+	b1 = iota //0
+	b2        //1
 	_ //iota會多計算一次，但不會存入變數
-	b3
+	b3        //3
 )
 
 
 const (
 	c1 = iota //0
 	c2 = 100  //100
-	c3 = iota
-	c4
+	c3 = iota //2
+	c4        //3
 )
 ```
 ## main()
+跟Java一樣，Go的程式進入點在main()函式內
 ```go
 func main() { //程式進入點
 	name = "國動"
@@ -110,24 +113,6 @@ func main() { //程式進入點
 	//只能在函式內用
 	s3 := "巨鎚瑞斯"
 	fmt.Print(s3)
-
-	fmt.Println("n1", n1)
-	fmt.Println("n2", n2)
-	fmt.Println("n3", n3)
-
-	fmt.Println("a1", a1)
-	fmt.Println("a2", a2)
-	fmt.Println("a3", a3)
-
-	fmt.Println("b1", b1)
-	fmt.Println("b2", b2)
-	fmt.Println("b1", b3)
-
-	fmt.Println("c1", c1)
-	fmt.Println("c2", c2)
-	fmt.Println("c3", c3)
-	fmt.Println("c4", c4)
-
 }
 ```
 
@@ -137,4 +122,14 @@ int8 int16 int32 int64
 
 uint8 uint16 uint32 uint64
 
-uint8 就是byte類型
+uint8 就是byte類型，亦稱無整數
+```go
+uint8  : 0 ~ 255
+uint16 : 0 ~ 65535
+uint32 : 0 ~ 4294967295
+uint64 : 0 ~ 18446744073709551615
+int8   : -128 ~ 127
+int16  : -32768 ~ 32767
+int32  : -2147483648 ~ 2147483647
+int64  : -9223372036854775808 ~ 9223372036854775807
+```
