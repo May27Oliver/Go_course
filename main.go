@@ -68,6 +68,33 @@ const (
 	c4
 )
 
+//函式宣告
+//(x,y int)外的型別為回傳值的型別
+func add(x, y int) int {
+	return x + y
+}
+
+//函式本身可以是另一個函式的參數
+func handleDeal(fn func(float64, float64) float64) float64 {
+	return fn(3, 5)
+}
+
+//函式可以回傳另一個函式
+func fibonacci() func(x int) int {
+	return func(x int) int {
+		return 2
+	}
+}
+
+//函式回傳函式也有閉包
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
+}
+
 func main() { //程式進入點
 	name = "國動"
 	age = 35
@@ -127,6 +154,21 @@ func main() { //程式進入點
 
 	fmt.Println("complexValue3 實數 =", real(complexValue3))
 	fmt.Println("complexValue3 虛數 =", imag(complexValue3))
+
+	//函式內定義函式可以用表達式
+	add := func(x, y int) int {
+		return x + y
+	}
+	add(1, 2)
+
+	//匿名函式
+	func() {
+		fmt.Println("Hello anonymous")
+	}()
+
+	func(x, y int) {
+		fmt.Println(x + y)
+	}(1, 2)
 }
 
 //類別

@@ -2,6 +2,10 @@
 ## 線上寫Go網站
 https://play.golang.org/
 
+## 參考網站
+PJ
+https://pjchender.dev/
+https://pjchender.dev/golang/function-and-method
 ## Package
 package main //所有的go程式都需要有package，說明這個文件在哪個package下
 
