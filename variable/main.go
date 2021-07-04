@@ -22,9 +22,9 @@ func foo(a int, b string) {
 
 //Go變數宣告方式，宣告全域變數用
 var (
-	student_name string
-	studentName  string
-	StudentName  string
+	student_name,
+	studentName,
+	StudentName string
 )
 
 //函式外面每個語句都要以關鍵字開始(var,const,func)
@@ -95,6 +95,35 @@ func adder() func(int) int {
 	}
 }
 
+//struct 可以定義物件，接著丟進參數內
+type addOpts struct {
+	x int
+	y int
+	z int
+}
+
+func addOption(opts addOpts) int {
+	return opts.x + opts.y + opts.z
+}
+
+func paramPtr(pPtr *int) {
+	*pPtr = *pPtr + 10
+	fmt.Println(*pPtr)
+}
+
+//variable自動判斷型別
+func VariableDeduction() {
+	var a, b, c, s = 3, 4, true, "def"
+	fmt.Println(a, b, c, s)
+}
+
+//variable自動判斷型別
+func VariableShorter() {
+	a, b, c, s := 3, 4, true, "def"
+	fmt.Println(a, b, c, s)
+}
+
+//func 回傳多個值
 func main() { //程式進入點
 	name = "國動"
 	age = 35
@@ -169,6 +198,25 @@ func main() { //程式進入點
 	func(x, y int) {
 		fmt.Println(x + y)
 	}(1, 2)
+
+	addOption(addOpts{x: 1, y: 2}) //呼喚參數為struct的func時須在參數前加上type
+
+	//回傳多筆資料
+	multiReturn := func() (x int, y string, z int) {
+		return 1, "Oliver", 2
+	}
+	box1, box2, box3 := multiReturn()
+	fmt.Println(box1, box2, box3)
+
+	//取得記憶體位置
+	var w int = 3
+	var wPtr *int = &w //指標資料型態，須加上*
+	fmt.Println(wPtr)
+	//反解指標變數
+	fmt.Println(*wPtr) //在指標變數前加上*可以反解該指標變數
+
+	var p int = 10
+	paramPtr(&p)
 }
 
 //類別

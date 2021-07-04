@@ -205,3 +205,25 @@ func main(){
   }
 }
 ```
+
+## struct 
+golang裡沒有class，改以struct替代
+
+```go
+package main
+import "fmt"
+//宣告struct
+type Point struct{
+	x int 
+	y int
+}
+
+//struct內的func稱為method，宣告method
+func (parameter Point) getX(){
+	fmt.Println(parameter.x)
+}
+
+//實例化struct
+var pinstance Point = Point{x:3,y:4}
+pinstance.getX()
+```
