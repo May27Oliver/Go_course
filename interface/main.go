@@ -23,6 +23,11 @@ type retriever interface{
 	Get(string)string
 }
 func main() {
+	//如果你想在一個slice中放int和放string，型別就命名為interface{}
+	var a = []interface{}{}
+	a = append(a,"aaa")
+	a = append(a,1)
+	
 	var r retriever = getRetriever()
 	var tr retriever = getTestingRetriever()
 	fmt.Println(r.Get("https://www.imooc.com"))
